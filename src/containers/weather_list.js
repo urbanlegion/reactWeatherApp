@@ -17,10 +17,11 @@ class WeatherList extends React.Component {
     const pressure = cityData.list.map(weather => weather.main.pressure);
     const humidity = cityData.list.map(weather => weather.main.humidity);
     const {lon, lat} = cityData.city.coord;
-console.log('the lat and lon are : ',lat,lon)
+    console.log('the lat and lon are : ', lat, lon)
     return (
       <tr key={cityData.city.name}>
-        <td className="googleMap"><GoogleMap lat={lat} lon={lon} /></td>
+        <td><GoogleMap lat={lat} lon={lon} />
+        </td>
         <td><Chart data={temps} color={"orange"} units="C"/></td>
         <td><Chart data={pressure} color={"blue"} units="hPa"/></td>
         <td><Chart data={humidity} color={"red"} units="%"/></td>
