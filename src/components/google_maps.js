@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
-
 class GoogleMap extends Component {
+
   componentDidMount() {
-    new google.maps.Map(this.refs.map, {
+    var map = new google.maps.Map(this.refs.map, {
       zoom: 12,
       center: {
         lat: this.props.lat,
         lng: this.props.lon
       }
     });
+
+    var input = document.getElementById('pac-input');
+    var autocomplete = new google.maps.places.Autocomplete(input,{ types: ['geocode'] });
+    //autocomplete.bindTo('bounds', map);
+    autocomplete.addListener('place_changed', this.fillInAddress(autocomplete));
   }
+
+
+ fillInAddress(autocomplete) {
+   console.log('fill address!');
+  // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+
+}
 
   render() {
     return <div ref="map" />;

@@ -18,6 +18,7 @@ class SearchBar extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+
   onInputChange(event) {
 
     event.preventDefault();
@@ -35,8 +36,9 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit} className="input-group">
-
-        <input placeholder="Get a five-day forecast in your city" className="form-control" value={this.state.term} onChange={this.onInputChange}/>
+        <div id="pac-container">
+          <input id="pac-input" placeholder="Select location" className="form-control" value={this.state.term} onChange={this.onInputChange}/>
+        </div>
         <span className="input-group-btn">
           <button className="btn btn-secondary" type="submit">Submit</button>
         </span>
