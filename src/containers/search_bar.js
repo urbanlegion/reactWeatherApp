@@ -36,6 +36,8 @@ class SearchBar extends React.Component {
   componentDidMount() {
     var input = document.getElementById('pac-input');
     var autocomplete = new google.maps.places.Autocomplete(input,{ types: ['geocode'] });
+
+google.maps.event.addListener(autocomplete,'place_changed', ()=>{   this.props.fetchWeather(autocomplete.getPlace().formatted_address); this.setState({term: ''}) });
   }
 
   render() {
