@@ -33,6 +33,11 @@ class SearchBar extends React.Component {
 
   }
 
+  componentDidMount() {
+    var input = document.getElementById('pac-input');
+    var autocomplete = new google.maps.places.Autocomplete(input,{ types: ['geocode'] });
+  }
+
   render() {
     return (
       <form onSubmit={this.onSubmit} className="input-group">

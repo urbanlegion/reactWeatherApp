@@ -10,10 +10,8 @@ class GoogleMap extends Component {
       }
     });
 
-    var input = document.getElementById('pac-input');
-    var autocomplete = new google.maps.places.Autocomplete(input,{ types: ['geocode'] });
     //autocomplete.bindTo('bounds', map);
-    autocomplete.addListener('place_changed', this.fillInAddress(autocomplete));
+    //autocomplete.addListener('place_changed', this.fillInAddress(autocomplete));
   }
 
 
